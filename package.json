@@ -1,0 +1,27 @@
+{
+  "name": "ssh-stdio",
+  "displayName": "SSH Stdio — Remote Files",
+  "description": "Edit remote files in VS Code over SSH — no port or socket forwarding required!",
+  "version": "0.1.0",
+  "publisher": "local-tools",
+  "repository": { "type": "git", "url": "https://github.com/tracywong117/vscode-ssh-stdio.git" },
+  "homepage": "https://github.com/tracywong117/vscode-ssh-stdio#readme",
+  "bugs": { "url": "https://github.com/tracywong117/vscode-ssh-stdio/issues" },
+  "scripts": { "package": "python3 scripts/package.py" },
+  "engines": { "vscode": "^1.90.0" },
+  "categories": ["Other"],
+  "main": "./extension.js",
+  "extensionKind": ["ui"],
+  "activationEvents": ["onFileSystem:ssh-stdio"],
+  "capabilities": {
+    "virtualWorkspaces": true,
+    "untrustedWorkspaces": { "supported": false }
+  },
+  "contributes": {
+    "commands": [
+      { "command": "sshStdio.openFolder", "title": "SSH Stdio: Open Remote Folder" },
+      { "command": "sshStdio.terminal", "title": "SSH Stdio: Open Remote Terminal" },
+      { "command": "sshStdio.disconnect", "title": "SSH Stdio: Disconnect" }
+    ]
+  }
+}
